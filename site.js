@@ -20,7 +20,8 @@ const $ = (id) => document.getElementById(id);
 /* WhatsApp links */
 const waUrl = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(WA_TEXT)}`;
 document.querySelectorAll("[data-wa]").forEach((a) => {
-  a.href = waUrl; a.target = "_blank"; a.rel = "noopener";
+  a.href = a.dataset.waText ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(a.dataset.waText)}` : waUrl;
+  a.target = "_blank"; a.rel = "noopener";
 });
 
 /* Header border once scrolled */
